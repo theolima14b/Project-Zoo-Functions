@@ -59,8 +59,18 @@ function countAnimals(selectedSpecie) {
   return data.species.find((specie) => specie.name === selectedSpecie).residents.length;
 }
 
-function calculateEntry(entrants) {
-  // seu código aqui
+// prices: {
+//   Adult: 49.99,
+//   Senior: 24.99,
+//   Child: 20.99,
+// },
+
+function calculateEntry(entrants = 0) {
+  const adultIncome = (entrants.Adult) ? entrants.Adult * 49.99 : 0;
+  const childIncome = (entrants.Child) ? entrants.Child * 20.99 : 0;
+  const seniorIncome = (entrants.Senior) ? entrants.Senior * 24.99 : 0;
+
+  return (entrants === 0) ? 0 : adultIncome + seniorIncome + childIncome;
 }
 
 function getAnimalMap(options) {
