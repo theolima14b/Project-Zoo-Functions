@@ -41,12 +41,22 @@ const isManager = (id) => {
   return managers.some((managersId) => managersId === id);
 };
 
-function addEmployee(id, firstName, lastName, managers, responsibleFor) {
-  // seu código aqui
+function addEmployee(id, firstName, lastName, managers = [], responsibleFor = []) {
+  const newEmployee = {
+    id,
+    firstName,
+    lastName,
+    managers,
+    responsibleFor,
+  };
+  return data.employees.push(newEmployee);
 }
 
-function countAnimals(species) {
-  // seu código aqui
+function countAnimals(selectedSpecie) {
+  if (!selectedSpecie) {
+    return data.species.reduce((acc, curr) => ({ ...acc, [curr.name]: curr.residents.length }), {});
+  }
+  return data.species.find((specie) => specie.name === selectedSpecie).residents.length;
 }
 
 function calculateEntry(entrants) {
