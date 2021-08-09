@@ -35,8 +35,10 @@ function createEmployee({ id, firstName, lastName }, { managers, responsibleFor 
   };
 }
 
-const isManager = (employee) => {
-
+const isManager = (id) => {
+  let managers = data.employees.map((employee) => employee.managers);
+  managers = managers.reduce((acc, curr) => [...acc, ...curr], []);
+  return managers.some((managersId) => managersId === id);
 };
 
 function addEmployee(id, firstName, lastName, managers, responsibleFor) {
