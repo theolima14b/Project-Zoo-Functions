@@ -1,24 +1,43 @@
 const data = require('./data');
 
-function getSpeciesByIds(ids) {
-  // seu código aqui
+function getSpeciesByIds(...ids) {
+  if (!ids) return [];
+  const species = [];
+  ids.forEach((id) => {
+    species.push(...data.species.filter((animal) => animal.id === id));
+  });
+  return species;
 }
 
 function getAnimalsOlderThan(animal, age) {
-  // seu código aqui
+  const { residents } = data.species.find((specie) => specie.name === animal);
+  return residents.every((specie) => specie.age >= age);
 }
 
 function getEmployeeByName(employeeName) {
-  // seu código aqui
+  if (!employeeName) return {};
+  const getEmployeeName = data.employees.find((employee) => {
+    if (employee.firstName === employeeName || employee.lastName === employeeName) {
+      return true;
+    }
+    return false;
+  });
+  return getEmployeeName;
 }
 
-function createEmployee(personalInfo, associatedWith) {
-  // seu código aqui
+function createEmployee({ id, firstName, lastName }, { managers, responsibleFor }) {
+  return {
+    id,
+    firstName,
+    lastName,
+    managers,
+    responsibleFor,
+  };
 }
 
-function isManager(id) {
-  // seu código aqui
-}
+const isManager = (employee) => {
+
+};
 
 function addEmployee(id, firstName, lastName, managers, responsibleFor) {
   // seu código aqui

@@ -241,8 +241,7 @@ module.exports = {
     },
   ],
   employees: [
-    {
-      id: 'c5b83cb3-a451-49e2-ac45-ff3f54fbe7e1',
+    { id: 'c5b83cb3-a451-49e2-ac45-ff3f54fbe7e1',
       firstName: 'Nigel',
       lastName: 'Nelson',
       managers: [burlId, olaId],
