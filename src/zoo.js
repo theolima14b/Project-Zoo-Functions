@@ -59,7 +59,6 @@ function countAnimals(selectedSpecie) {
   return data.species.find((specie) => specie.name === selectedSpecie).residents.length;
 }
 
-
 function calculateEntry(entrants = 0) {
   const adultIncome = (entrants.Adult) ? entrants.Adult * 49.99 : 0;
   const childIncome = (entrants.Child) ? entrants.Child * 20.99 : 0;
